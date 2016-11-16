@@ -150,14 +150,11 @@ final class Init
         return $this->connect->close();
     }
 
-    public function int()
-    {
-        $this->createDB();
-        $this->create();
-        $this->fill();
-
-    }
-
+    /**
+     * select db method
+     *
+     * @throws exception if select db has error
+     */
     private function selectDb(){
         if(!$this->connect->select_db($this->db)){
             throw new Exception('Select Db error (' . $this->connect->errno . ') '
